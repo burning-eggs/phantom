@@ -1,7 +1,16 @@
+/*
+ * Copyright (C) 2021-2021 | flying-dojo | All rights reserved.
+ *
+ * This source code is subject to the terms of the GNU General Public
+ * License, version 3. If a copy of the GPL was not distributed with this
+ * file, you can obtain one at: https://gnu.org/licenes/gpl-3.0.txt
+ */
+
 package org.phantom;
 
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.opengl.GL;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
@@ -49,6 +58,12 @@ public class Window {
 
         if (glfwWindow == NULL)
             throw new IllegalStateException("[ILLEGALSTATE] Unable to create window");
+
+        glfwMakeContextCurrent(glfwWindow);
+        glfwSwapInterval(1);
+        glfwShowWindow(glfwWindow);
+
+        GL.createCapabilities();
     }
 
     public void loop() {
