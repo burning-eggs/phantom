@@ -53,8 +53,9 @@ public class Window {
     public void init() {
         GLFWErrorCallback.createPrint(System.err).set();
 
-        if (!glfwInit())
+        if (!glfwInit()) {
             throw new IllegalStateException("[ILLEGALSTATE] Unable to initialize LWJGL");
+        }
 
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
@@ -63,9 +64,10 @@ public class Window {
 
         glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
 
-        if (glfwWindow == NULL)
+        if (glfwWindow == NULL) {
             throw new IllegalStateException("[ILLEGALSTATE] Unable to create window");
-
+        }
+        
         glfwMakeContextCurrent(glfwWindow);
         glfwSwapInterval(1);
         glfwShowWindow(glfwWindow);
