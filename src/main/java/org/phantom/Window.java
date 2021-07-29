@@ -67,7 +67,7 @@ public class Window {
         if (glfwWindow == NULL) {
             throw new IllegalStateException("[ILLEGALSTATE] Unable to create window");
         }
-        
+
         glfwMakeContextCurrent(glfwWindow);
         glfwSwapInterval(1);
         glfwShowWindow(glfwWindow);
