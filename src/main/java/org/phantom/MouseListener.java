@@ -91,4 +91,16 @@ public class MouseListener {
     public static float getScrollY() {
         return (float) get().scrollY;
     }
+
+    public static boolean isDragging() {
+        return get().isDragging;
+    }
+
+    public static boolean mouseButtonDown(int button) {
+        if (button < get().mouseButtonPressed.length) {
+            return get().mouseButtonPressed[button];
+        } else {
+            return false;
+        }
+    }
 }
