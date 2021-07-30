@@ -46,4 +46,16 @@ public class MouseListener {
             }
         }
     }
+
+    public static void mouseScrollCallback(long window, double xOffset, double yOffset) {
+        get().scrollX = xOffset;
+        get().scrollY = yOffset;
+    }
+
+    public static void endFrame() {
+        get().scrollX = 0;
+        get().scrollY = 0;
+        get().lastX = get().xPos;
+        get().lastY = get().yPos;
+    }
 }
