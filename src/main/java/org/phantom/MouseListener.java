@@ -1,5 +1,8 @@
 package org.phantom;
 
+import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
+import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
+
 public class MouseListener {
     private static MouseListener instance;
     private double scrollX, scrollY;
@@ -22,5 +25,25 @@ public class MouseListener {
         }
 
         return MouseListener.instance;
+    }
+
+    public static void mousePosCallback(long window, double xpos, double ypos) {
+        get().lastX = get().xPos;
+        get().lastY = get().yPos;
+        get().xPos = xpos;
+        get().yPos = ypos;
+    }
+
+    public static void mouseButtonCallback(long window, int button, int action, int mods) {
+        if (action == GLFW_PRESS) {
+            if (button < get().mouseButtonPressed.length) {
+                get().mouseButtonPressed[button] = true;
+            }
+        } else if (action == GLFW_RELEASE) {
+            if (button < get().mouseButtonPressed.length) {
+                get().mouseButtonPressed[button] = false;
+                get().isDragging = false;
+            }
+        }
     }
 }
