@@ -13,7 +13,7 @@ public class MouseListener {
         this.xPos = 0.0;
         this.yPos = 0.0;
         this.lastX = 0.0;
-        this .lastY = 0.0;
+        this.lastY = 0.0;
     }
 
     public static MouseListener get() {
