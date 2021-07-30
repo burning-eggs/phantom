@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'jacoco'
 }
 
 version '1.0-SNAPSHOT'
@@ -39,12 +38,3 @@ dependencies {
     runtimeOnly "org.lwjgl:lwjgl-stb::$lwjglNatives"
     implementation "org.joml:joml:${jomlVersion}"
 }
-
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = false
-    }
-}
-
-check.dependsOn jacocoTestReport
