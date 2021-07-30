@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: set up ubuntu jdk v11
+    - name: set up ubuntu jdk v16
       uses: actions/setup-java@v2
       with:
         java-version: '16'
